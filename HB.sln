@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HB", "HB\HB.csproj", "{508C3219-F63B-469C-81BF-2D7C05A8C61E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "teDB", "teDB\teDB.csproj", "{133CDC24-0A58-485E-810D-64520491CE3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{508C3219-F63B-469C-81BF-2D7C05A8C61E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{508C3219-F63B-469C-81BF-2D7C05A8C61E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{508C3219-F63B-469C-81BF-2D7C05A8C61E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{508C3219-F63B-469C-81BF-2D7C05A8C61E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{133CDC24-0A58-485E-810D-64520491CE3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{133CDC24-0A58-485E-810D-64520491CE3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{133CDC24-0A58-485E-810D-64520491CE3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{133CDC24-0A58-485E-810D-64520491CE3C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AEA52616-698C-4713-AF78-1BC783EEFA62}
+	EndGlobalSection
+EndGlobal
