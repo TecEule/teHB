@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using teDB;
 
 namespace HB
 {
@@ -23,6 +24,23 @@ namespace HB
     public MainWindow()
     {
       InitializeComponent();
+
+      initDBConncection();
     }
+
+
+    private bool initDBConncection()
+    {
+      bool conSuccesful = false;
+
+      teDB.teDB conVersuch = teDB.teDB.Instance.addConncection("OwnBase", "Standard", teDBEnum.Dateiendung.UDL);
+      
+
+
+      return conSuccesful;
+    }
+
+
+
   }
 }
