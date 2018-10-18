@@ -28,7 +28,8 @@ namespace teDB
       }
     }
 
-    public Dictionary<string,teDB> Verbindungsliste = null;
+    public Dictionary<string,teDB> Verbindungsliste { get; }
+
     
     private teDB()
     {

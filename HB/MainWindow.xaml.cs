@@ -34,7 +34,8 @@ namespace HB
       bool conSuccesful = false;
 
       teDB.teDB conVersuch = teDB.teDB.Instance.addConncection("OwnBase", "Standard", teDBEnum.Dateiendung.UDL);
-      
+
+
 
 
       return conSuccesful;
