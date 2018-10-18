@@ -38,7 +38,7 @@ namespace teDB
 
       if (File.Exists(pfadMitUdl))
       {
-        ParameterAusUdlLesen(pfadMitUdl);
+        conParameter = ParameterAusUdlLesen(pfadMitUdl);
       }
       else
       {
@@ -64,13 +64,26 @@ namespace teDB
 
       foreach (var eintrag in eintraege)
       {
-        dBParameter.Datenbank = leseUdlWert(eintrag, "initial catalog=");
-        dBParameter.Server = leseUdlWert(eintrag, "data source=");
-        dBParameter.Provider = leseUdlWert(eintrag, "provider=");
-        dBParameter.PersistSecurityInfo = leseUdlWert(eintrag, "Persist Security Info=");
-        dBParameter.Integratedsecrurity = leseUdlWert(eintrag, "Integrated Security=");
-        dBParameter.Benutzername = leseUdlWert(eintrag, "User ID=");
-        dBParameter.Passwort = leseUdlWert(eintrag, "Password=");
+        if (dBParameter.Datenbank == "" || dBParameter.Datenbank == null)
+          dBParameter.Datenbank = leseUdlWert(eintrag, "initial catalog=");
+
+        if (dBParameter.Server == "" || dBParameter.Server == null)
+          dBParameter.Server = leseUdlWert(eintrag, "data source=");
+
+        if (dBParameter.Provider == "" || dBParameter.Provider == null) 
+          dBParameter.Provider = leseUdlWert(eintrag, "provider=");
+
+        if (dBParameter.PersistSecurityInfo == "" || dBParameter.PersistSecurityInfo == null)
+          dBParameter.PersistSecurityInfo = leseUdlWert(eintrag, "Persist Security Info=");
+
+        if (dBParameter.Integratedsecrurity == "" || dBParameter.Integratedsecrurity == null)
+          dBParameter.Integratedsecrurity = leseUdlWert(eintrag, "Integrated Security=");
+
+        if (dBParameter.Benutzername == "" || dBParameter.Benutzername == null)
+          dBParameter.Benutzername = leseUdlWert(eintrag, "User ID=");
+
+        if (dBParameter.Passwort == "" || dBParameter.Passwort == null)
+          dBParameter.Passwort = leseUdlWert(eintrag, "Password=");
       }
 
       return dBParameter;

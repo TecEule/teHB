@@ -29,25 +29,40 @@ namespace teDB
       }
     }
 
-    public Dictionary<string,teDB> Verbindungsliste { get; }
+    public Dictionary<string,teDBParameter> Verbindungsliste { get; }
 
     
     private teDB()
     {
-      Verbindungsliste = new Dictionary<string, teDB>();
+      Verbindungsliste = new Dictionary<string, teDBParameter>();
 
       _VerbindungsVerzeichnis = @"D:\Projekte\Projekte_Eigene\_HB\teHB\ini\";
     }
 
     public teDB addConncection(string anzeigeName, string dateiName, teDBEnum.Dateiendung dateiEndung)
     {
-      teDB teConnection = null;
+      teDB teConnection = new teDB();
 
-      //SqlConnection db = UdlHelper.Instance.readFromUdl(dateiName);
+      teDBParameter db = UdlHelper.Instance.readFromUdl(dateiName);
 
-      
+      if (db != null)
+      {
+        SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
+        stringBuilder.DataSource = db.Server;
+        stringBuilder.InitialCatalog = db.Datenbank;
+        stringBuilder.UserID = db.Benutzername;
+        stringBuilder.Password = db.Passwort;
+        stringBuilder.PersistSecurityInfo = Convert.ToBoolean(db.PersistSecurityInfo);
 
-      Verbindungsliste.Add(anzeigeName, teConnection);
+
+        SqlConnection connection = new SqlConnection(stringBuilder.ToString());
+        db.SqlVerbindung = connection;
+
+        db.Verbindungsname = anzeigeName;
+      }
+     
+
+      Verbindungsliste.Add(anzeigeName, db);
       return teConnection;
     }
 
