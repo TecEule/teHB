@@ -42,8 +42,22 @@ namespace teDB
     public teDB addConncection(string anzeigeName, string dateiName, teDBEnum.Dateiendung dateiEndung)
     {
       teDB teConnection = new teDB();
+      teDBParameter db = null;
 
-      teDBParameter db = UdlHelper.Instance.readFromUdl(dateiName);
+      switch (dateiEndung)
+      {
+        case teDBEnum.Dateiendung.UDL:
+          db = UdlHelper.Instance.readFromUdl(dateiName);
+          break;
+        case teDBEnum.Dateiendung.JSON:
+          db = JSONHelper.Instance.readFromJson(dateiName);
+          break;
+        case teDBEnum.Dateiendung.XML:
+          db = XMLHelper.Instance.readFromXml(dateiName);
+          break;
+      }
+
+
 
       if (db != null)
       {
@@ -64,32 +78,6 @@ namespace teDB
 
       Verbindungsliste.Add(anzeigeName, db);
       return teConnection;
-    }
-
-
-    private bool readFile(string dateiName, teDBEnum.Dateiendung dateiEndung)
-    {
-      bool readSuccesful = false;
-
-
-
-      return readSuccesful;
-    }
-
-    private bool readFromUDL(string dateiName)
-    {
-      bool readSuccesful = false;
-
-
-      return readSuccesful;
-    }
-
-    private bool readFromJSON(string dateiName)
-    {
-      bool readSuccesfull = false;
-
-
-      return readSuccesfull;
     }
 
     }

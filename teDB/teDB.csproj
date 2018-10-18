@@ -53,10 +53,12 @@
     <Compile Include="Form\teDatenbank.xaml.cs">
       <DependentUpon>teDatenbank.xaml</DependentUpon>
     </Compile>
+    <Compile Include="JSONHelper.cs" />
     <Compile Include="teDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="teDBParameter.cs" />
     <Compile Include="UdlHelper.cs" />
+    <Compile Include="XMLHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
