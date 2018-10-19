@@ -55,7 +55,7 @@ namespace teDB.Form
 
     private void btn_Close_Click(object sender, RoutedEventArgs e)
     {
-
+      
     }
 
     private void btn_Speichern_Click(object sender, RoutedEventArgs e)

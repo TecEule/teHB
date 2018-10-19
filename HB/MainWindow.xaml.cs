@@ -37,10 +37,10 @@ namespace HB
 
       conStanDB= teDB.teDB.Instance.addConncection("OwnBase", "Standard", teDBEnum.Dateiendung.UDL);
 
-      teDB.teDB conTest_1 = teDB.teDB.Instance.addConncection("Testverbindung 1", "Standard", teDBEnum.Dateiendung.UDL);
-      teDB.teDB conTest_2 = teDB.teDB.Instance.addConncection("Testverbindung 2", "Standard", teDBEnum.Dateiendung.UDL);
-      teDB.teDB conTest_3 = teDB.teDB.Instance.addConncection("Testverbindung 3", "Standard", teDBEnum.Dateiendung.UDL);
-      teDB.teDB conTest_4 = teDB.teDB.Instance.addConncection("Testverbindung 4", "Standard", teDBEnum.Dateiendung.UDL);
+      teDB.teDB conTest_1 = teDB.teDB.Instance.addConncection("Haushalt", "Haushalt", teDBEnum.Dateiendung.XML);
+      teDB.teDB conTest_2 = teDB.teDB.Instance.addConncection("Verbindung_1", "Haushalt", teDBEnum.Dateiendung.XML);
+
+
 
       return conSuccesful;
     }

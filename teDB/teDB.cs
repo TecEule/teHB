@@ -39,7 +39,7 @@ namespace teDB
       _VerbindungsVerzeichnis = @"D:\Projekte\Projekte_Eigene\_HB\teHB\ini\";
     }
 
-    public teDB addConncection(string anzeigeName, string dateiName, teDBEnum.Dateiendung dateiEndung)
+    public teDB addConncection(string dbVerbindungsName, string dateiName, teDBEnum.Dateiendung dateiEndung)
     {
       teDB teConnection = new teDB();
       teDBParameter db = null;
@@ -53,7 +53,7 @@ namespace teDB
           db = JSONHelper.Instance.readFromJson(dateiName);
           break;
         case teDBEnum.Dateiendung.XML:
-          db = XMLHelper.Instance.readFromXml(dateiName);
+          db = XMLHelper.Instance.readFromXml(dateiName, dbVerbindungsName);
           break;
       }
 
@@ -72,11 +72,11 @@ namespace teDB
         SqlConnection connection = new SqlConnection(stringBuilder.ToString());
         db.SqlVerbindung = connection;
 
-        db.Verbindungsname = anzeigeName;
+        db.Verbindungsname = dbVerbindungsName;
       }
      
 
-      Verbindungsliste.Add(anzeigeName, db);
+      Verbindungsliste.Add(dbVerbindungsName, db);
       return teConnection;
     }
 
