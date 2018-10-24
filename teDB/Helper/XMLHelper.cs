@@ -24,13 +24,16 @@ namespace teDB
       }
     }
 
+
+   
+
     private XMLHelper() { }
 
     public teDBParameter readFromXml(string dateiName, string dbVerbindungsName)
     {
       teDBParameter conParameter = null;
 
-      string pfad = teDB.Instance._VerbindungsVerzeichnis;
+      string pfad = teDB_.teDB_.Instance._VerbindungsVerzeichnis;
       string endung = string.Format("{0}{1}", dateiName, teExtension.EnumUtils<teDBEnum.Dateiendung>.GetDescription(teDBEnum.Dateiendung.XML));
 
       string pfadMitUdl = Path.Combine(pfad, endung);

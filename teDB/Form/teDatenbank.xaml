@@ -5,8 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:teDB.Form"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+             d:DesignHeight="450" d:DesignWidth="800"
+             Height="auto"
+             Width="auto">
+    <Grid Height="auto" Width="auto" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
@@ -16,29 +18,34 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="*"/>
+
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
+    
+
+            <!--Übersicht der Datenbankverbindungen-->
+            <DataGrid x:Name="gridHaushalt" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Height="auto" Width="auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Verbindungsname" Width="*" Binding="{Binding Verbindungsname}"/>
+                    <DataGridTextColumn Header="Server" Width="*" Binding="{Binding Server}"/>
+                    <DataGridTextColumn Header="Datenbank" Width="*" Binding="{Binding Datenbank}"/>
+                    <DataGridTextColumn Header="Benutzer" Width="*" Binding="{Binding Benutzername}"/>
+                    <DataGridTextColumn Header="Password" Width="*" Binding="{Binding Passwort}"/>
+                    <DataGridTextColumn Header="Sicherheit" Width="*" Binding="{Binding Integratedsecrurity}"/>
+                    <DataGridTextColumn Header="PersistSecurityInfo" Width="*" Binding="{Binding PersistSecurityInfo}"/>
+                    <DataGridTextColumn Header="Provider" Width="*" Binding="{Binding Provider}"/>
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+
 
         <!--Funktionsauswahl-->
-        <Button x:Name="btn_Close" Content="Close" Grid.Row="1" Grid.Column="5" FontSize="16" Click="btn_Close_Click"/>
-        <Button x:Name="btn_Speichern" Content="Speichern" Grid.Row="1" Grid.Column="4" FontSize="16" Click="btn_Speichern_Click"/>
-        <Button x:Name="btn_Export" Content="Export" Grid.Row="1" Grid.Column="3" FontSize="16" Click="btn_Export_Click"/>
+            <Button x:Name="btn_Close" Content="Close" Grid.Row="1" Grid.Column="5" FontSize="16" Click="btn_Close_Click"/>
+            <Button x:Name="btn_Speichern" Content="Speichern" Grid.Row="1" Grid.Column="4" FontSize="16" Click="btn_Speichern_Click"/>
+            <Button x:Name="btn_Export" Content="Export" Grid.Row="1" Grid.Column="3" FontSize="16" Click="btn_Export_Click"/>
 
-        <!--Übersicht der Datenbankverbindungen-->
-        <DataGrid x:Name="gridHaushalt" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Verbindungsname" Width="*" Binding="{Binding Verbindungsname}"/>
-                <DataGridTextColumn Header="Server" Width="*" Binding="{Binding Server}"/>
-                <DataGridTextColumn Header="Datenbank" Width="*" Binding="{Binding Datenbank}"/>
-                <DataGridTextColumn Header="Benutzer" Width="*" Binding="{Binding Benutzername}"/>
-                <DataGridTextColumn Header="Password" Width="*" Binding="{Binding Passwort}"/>
-                <DataGridTextColumn Header="Sicherheit" Width="*" Binding="{Binding Integratedsecrurity}"/>
-                <DataGridTextColumn Header="PersistSecurityInfo" Width="*" Binding="{Binding PersistSecurityInfo}"/>
-                <DataGridTextColumn Header="Provider" Width="*" Binding="{Binding Provider}"/>
-            </DataGrid.Columns>
-            
-        </DataGrid>
-        
+     
     </Grid>
 </UserControl>

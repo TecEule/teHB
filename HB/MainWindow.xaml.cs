@@ -29,16 +29,19 @@ namespace HB
       initDBConncection();
     }
 
-    teDB.teDB conStanDB;
+    teDB_.teDB_ conStanDB;
 
     private bool initDBConncection()
     {
       bool conSuccesful = false;
 
-      conStanDB= teDB.teDB.Instance.addConncection("OwnBase", "Standard", teDBEnum.Dateiendung.UDL);
+      conStanDB= teDB_.teDB_.Instance.addConncection("OwnBase", "Standard", teDBEnum.Dateiendung.UDL);
 
-      teDB.teDB conTest_1 = teDB.teDB.Instance.addConncection("Haushalt", "Haushalt", teDBEnum.Dateiendung.XML);
-      teDB.teDB conTest_2 = teDB.teDB.Instance.addConncection("Verbindung_1", "Haushalt", teDBEnum.Dateiendung.XML);
+      teDB_.teDB_ conTest_1 = teDB_.teDB_.Instance.addConncection("Haushalt", "Haushalt", teDBEnum.Dateiendung.XML);
+      teDB_.teDB_ conTest_2 = teDB_.teDB_.Instance.addConncection("Verbindung_1", "Haushalt", teDBEnum.Dateiendung.XML);
+
+      teDB_.teDB_ conTestJson = teDB_.teDB_.Instance.addConncection("BudgetVerbindung", "Budget", teDBEnum.Dateiendung.JSON);
+      teDB_.teDB_ conTestJsondd = teDB_.teDB_.Instance.addConncection("Budget", "Budget", teDBEnum.Dateiendung.JSON);
 
 
 
@@ -49,8 +52,27 @@ namespace HB
     {
 
       Window w = new Window();
-      w.Content = teDB.Form.teDatenbank.Instance;
+      w.Content = teDB.FormWpf.teDatenbankGui.Instance;
       w.Show();
+
+
+
+      //bool retValue = stackPanel.Children.Contains(teDB.Form.teDatenbank.Instance);
+
+      //if (retValue)
+      //  stackPanel.Children.Remove(teDB.Form.teDatenbank.Instance);
+
+      //stackPanel.Children.Add(teDB.Form.teDatenbank.Instance);
+
+
+      //teDB.Form.teDatenbankGui temp = new teDB.Form.teDatenbankGui();
+      //System.Windows.Forms.Integration.WindowsFormsHost host =
+      //  new System.Windows.Forms.Integration.WindowsFormsHost();
+
+      //teDB.FormUC.UserControl1 temp = new teDB.FormUC.UserControl1();
+      //host.Child = temp;
+
+      //stackPanel.Children.Add(host);
 
     }
   }

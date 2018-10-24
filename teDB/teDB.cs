@@ -4,26 +4,27 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using teDB;
 
-namespace teDB
+namespace teDB_
 {
 
     // Test Commit
 
-    public class teDB //: teDBParameter
+    public class teDB_ //: teDBParameter
     {
 
     public teDBParameter dbParam { get; }
 
     public string _VerbindungsVerzeichnis = "";
 
-    private static teDB _instance = null;
-    public static teDB Instance
+    private static teDB_ _instance = null;
+    public static teDB_ Instance
     {
       get
       {
         if (_instance == null)
-          _instance = new teDB();
+          _instance = new teDB_();
 
         return _instance;
       }
@@ -32,16 +33,16 @@ namespace teDB
     public Dictionary<string,teDBParameter> Verbindungsliste { get; }
 
     
-    private teDB()
+    private teDB_()
     {
       Verbindungsliste = new Dictionary<string, teDBParameter>();
 
       _VerbindungsVerzeichnis = @"D:\Projekte\Projekte_Eigene\_HB\teHB\ini\";
     }
 
-    public teDB addConncection(string dbVerbindungsName, string dateiName, teDBEnum.Dateiendung dateiEndung)
+    public teDB_ addConncection(string dbVerbindungsName, string dateiName, teDBEnum.Dateiendung dateiEndung)
     {
-      teDB teConnection = new teDB();
+      teDB_ teConnection = new teDB_();
       teDBParameter db = null;
 
       switch (dateiEndung)
@@ -50,14 +51,14 @@ namespace teDB
           db = UdlHelper.Instance.readFromUdl(dateiName);
           break;
         case teDBEnum.Dateiendung.JSON:
-          db = JSONHelper.Instance.readFromJson(dateiName);
+          db = JSONHelper.Instance.readFromJson(dateiName, dbVerbindungsName);
           break;
         case teDBEnum.Dateiendung.XML:
           db = XMLHelper.Instance.readFromXml(dateiName, dbVerbindungsName);
           break;
       }
 
-
+      
 
       if (db != null)
       {

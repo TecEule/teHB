@@ -4,10 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HB"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms" 
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" x:Class="HB.MainWindow"
         mc:Ignorable="d"
-        Title="Haushaltsbudget" Height="450" Width="800">
-    <Grid>
+        Title="Haushaltsbudget" Height="450" Width="957.5"
+    x:Name="MainWin">
+    <Grid x:Name="gridFlaeche">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="50"/>
@@ -17,7 +19,11 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="btn_Test" Content="DB" Click="btn_Test_Click" Grid.Column="1" Grid.Row="1"/>
+        <Button x:Name="btn_Test" Content="DB" Click="btn_Test_Click" Grid.Column="0" Grid.Row="1"/>
+
+        <WrapPanel x:Name="stackPanel" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Background="WhiteSmoke">
+            <WindowsFormsHost x:Name="wfHost"/>
+        </WrapPanel>
 
     </Grid>
 </Window>

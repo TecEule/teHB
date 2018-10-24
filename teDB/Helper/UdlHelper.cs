@@ -31,7 +31,7 @@ namespace teDB
     {
       teDBParameter conParameter = null;
 
-      string pfad = teDB.Instance._VerbindungsVerzeichnis;
+      string pfad = teDB_.teDB_.Instance._VerbindungsVerzeichnis;
       string endung = string.Format("{0}{1}", dateiName, teExtension.EnumUtils<teDBEnum.Dateiendung>.GetDescription(teDBEnum.Dateiendung.UDL));
      
       string pfadMitUdl = Path.Combine(pfad, endung);

@@ -12,59 +12,47 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using teDB;
+using teDB_;
 
-namespace teDB.Form
+
+
+namespace teDB.FormWpf
 {
   /// <summary>
-  /// Interaktionslogik für teDatenbank.xaml
+  /// Interaktionslogik für UserControlTest.xaml
   /// </summary>
-  public partial class teDatenbank : UserControl
+  public partial class teDatenbankGui : UserControl
   {
 
-    private static teDatenbank _instance = null;
-    public static teDatenbank Instance
+
+    private static teDatenbankGui _instance = null;
+    public static teDatenbankGui Instance
     {
       get
       {
         if (_instance == null)
-          _instance = new teDatenbank();
+          _instance = new teDatenbankGui();
+
         return _instance;
       }
-      
     }
-    public teDatenbank()
+
+    public teDatenbankGui()
     {
       InitializeComponent();
       initGrid();
     }
 
-
-
-
     private void initGrid()
     {
-     
-      foreach (var item in teDB.Instance.Verbindungsliste)
+
+      foreach (var item in teDB_.teDB_.Instance.Verbindungsliste)
       {
         teDBParameter dbParameter = item.Value;
         gridHaushalt.Items.Add(dbParameter);
       }
 
-      
-    }
-
-    private void btn_Close_Click(object sender, RoutedEventArgs e)
-    {
-      
-    }
-
-    private void btn_Speichern_Click(object sender, RoutedEventArgs e)
-    {
-
-    }
-
-    private void btn_Export_Click(object sender, RoutedEventArgs e)
-    {
 
     }
   }

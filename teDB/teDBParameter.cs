@@ -31,7 +31,7 @@ namespace teDB
     [Description("SQL Verbindungsstring")]
     public SqlConnection SqlVerbindung { get; set; }
 
-
-
   }
+
+
 }
