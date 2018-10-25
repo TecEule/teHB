@@ -34,6 +34,8 @@
                 <DataGridTextColumn Header="Sicherheit" Width="*" Binding="{Binding Integratedsecrurity}"/>
                 <DataGridTextColumn Header="PersistSecurityInfo" Width="*" Binding="{Binding PersistSecurityInfo}"/>
                 <DataGridTextColumn Header="Provider" Width="*" Binding="{Binding Provider}"/>
+                <DataGridTextColumn Header="Format" Width="*" Binding="{Binding Dateiformat}" />
+                <DataGridTextColumn Header="Status" Width="*" Binding="{Binding Verbindungsstatus}"/>
             </DataGrid.Columns>
 
         </DataGrid>
@@ -43,7 +45,8 @@
         <!--Funktionsauswahl-->
         <Button x:Name="btn_Close" Content="Close" Grid.Row="1" Grid.Column="5" FontSize="16" />
         <Button x:Name="btn_Speichern" Content="Speichern" Grid.Row="1" Grid.Column="4" FontSize="16" />
-        <Button x:Name="btn_Export" Content="Export" Grid.Row="1" Grid.Column="3" FontSize="16"/>
+        <Button x:Name="btn_Export" Content="Export" Grid.Row="1" Grid.Column="3" FontSize="16" Click="btn_Export_Click"/>
+        <Button x:Name="btn_Verbindungstest" Content="Verbindungstest" Grid.Row="1" Grid.Column="2" FontSize="16" Click="btn_Verbindungstest_Click"/>
 
 
     </Grid>

@@ -27,9 +27,42 @@ namespace teDB
     [Description("PersistSecurityInfo")]
     public string PersistSecurityInfo { get; set; }
 
+    [Description("In welchen format die Parameter gespeicht sind")]
+    public string Dateiformat { get; set; }
+
+    private SqlConn _sqlConn = null;
+    public SqlConn SqlVerbindung
+    {
+
+      get
+      {
+        if (_sqlConn == null)
+          _sqlConn = new SqlConn();
+
+        return _sqlConn;
+      }
+      
+    }
+
+    [Description("Status der Verbindung")]
+    public bool Verbindungsstatus { get; set; }
+
+  }
+
+  public class SqlConn
+  {
+    [Browsable(false)]
+    private SqlConnection _verbindung;
 
     [Description("SQL Verbindungsstring")]
-    public SqlConnection SqlVerbindung { get; set; }
+    public SqlConnection Verbindung
+    {
+      get { if (_verbindung == null) _verbindung = new SqlConnection(); if (_verbindung.ConnectionString == "") _verbindung.ConnectionString = stringBuilder.ToString(); return _verbindung; }
+      set { this._verbindung = value; }
+    }
+
+
+    public SqlConnectionStringBuilder stringBuilder { get; set; }
 
   }
 

@@ -55,5 +55,34 @@ namespace teDB.FormWpf
 
 
     }
+
+    private void btn_Verbindungstest_Click(object sender, RoutedEventArgs e)
+    {
+      foreach (var item in teDB_.teDB_.Instance.Verbindungsliste)
+      {
+        teDBParameter dbParameter = item.Value;
+        dbParameter.Verbindungsstatus = teDB_.teDB_.Instance.checkConnection(dbParameter);
+      }
+
+      gridHaushalt.Items.Refresh();
+    }
+
+    private void btn_Export_Click(object sender, RoutedEventArgs e)
+    {
+
+      var temp = gridHaushalt.SelectedItems;
+
+      List<teDBParameter> lst = temp.OfType<teDBParameter>().ToList();
+
+      foreach (var item in lst)
+      {
+
+      }
+
+
+
+    }
+
+
   }
 }

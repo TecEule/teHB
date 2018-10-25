@@ -69,17 +69,65 @@ namespace teDB_
         stringBuilder.Password = db.Passwort;
         stringBuilder.PersistSecurityInfo = Convert.ToBoolean(db.PersistSecurityInfo);
 
+        db.SqlVerbindung.stringBuilder = stringBuilder;
 
         SqlConnection connection = new SqlConnection(stringBuilder.ToString());
-        db.SqlVerbindung = connection;
+        db.SqlVerbindung.Verbindung = connection;
+
 
         db.Verbindungsname = dbVerbindungsName;
+
+        db.Dateiformat = dateiEndung.ToString();
+
+
+        //db.Verbindungsstatus = checkConnection(db);
       }
      
 
       Verbindungsliste.Add(dbVerbindungsName, db);
       return teConnection;
     }
+
+
+    public bool checkConnection(teDBParameter dbParameter)
+    {
+      bool conSuccesful = false;
+
+      try
+      {
+        using (dbParameter.SqlVerbindung.Verbindung)
+        {
+          try
+          {
+            dbParameter.SqlVerbindung.Verbindung.Open();
+            if (dbParameter.SqlVerbindung.Verbindung.State == System.Data.ConnectionState.Open)
+            {
+              conSuccesful = true;
+            }
+          }
+          catch (InvalidOperationException ex)
+          {
+            conSuccesful = false;
+          }
+          catch (SqlException ex)
+          {
+            conSuccesful = false;
+          }
+        }
+
+      }
+      catch (Exception ex)
+      {
+        conSuccesful = false;
+      }
+
+
+      return conSuccesful;
+    }
+    
+
+
+
 
     }
 }

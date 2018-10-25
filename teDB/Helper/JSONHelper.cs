@@ -57,15 +57,10 @@ namespace teDB
        json  = r.ReadToEnd();
       }
 
-      
-
+    
       JObject myJson = JObject.Parse(json);
       JArray myArray = (JArray)myJson["Verbindungen"];
       int anzahl = myArray.Count;
-      
-
-      //var nambe = (string)myJson["Verbindungen"][0]["Verbindungsname"];
-      //var ncambe = (string)myJson["Verbindungen"][1]["Verbindungsname"];
 
 
      for(int index = 0; index < anzahl; index++)
@@ -76,7 +71,7 @@ namespace teDB
           dbParameter.Verbindungsname = dbVerbindungsName;
           dbParameter.Benutzername = (string)myJson["Verbindungen"][index]["Benutzername"];
           dbParameter.Passwort = (string)myJson["Verbindungen"][index]["Passwort"];
-          dbParameter.PersistSecurityInfo = (string)myJson["Verbindungen"][index]["PersistSecurityInfo"].ToString();
+          dbParameter.PersistSecurityInfo = myJson["Verbindungen"][index]["PersistSecurityInfo"].ToString();
           dbParameter.Provider = (string)myJson["Verbindungen"][index]["Provider"];
           dbParameter.Server = (string)myJson["Verbindungen"][index]["Server"];
           dbParameter.Datenbank = (string)myJson["Verbindungen"][index]["Datenbank"];
