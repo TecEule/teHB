@@ -186,6 +186,47 @@ namespace teDB
 
     }
 
+    public bool convertToXml(teDBParameter dbParameter)
+    {
+      bool conSuccesful = false;
 
+      if (dbParameter != null)
+      {
+        try
+        {
+          string fileName = string.Format(@"D:\Projekte\Projekte_Eigene\_HB\teHB\ini\ConverttoXml_{0}.xml", dbParameter.Verbindungsname);
+          using (XmlWriter writer = XmlWriter.Create(fileName))
+          {
+            writer.WriteStartDocument();
+            writer.WriteStartElement("Foo");
+
+            writer.WriteStartElement("Verbindung");
+            writer.WriteAttributeString("Verbindungsname", dbParameter.Verbindungsname);
+            writer.WriteElementString("Verbindungsname", dbParameter.Verbindungsname);
+            writer.WriteElementString("Benutzername", dbParameter.Benutzername);
+            writer.WriteElementString("Passwort", dbParameter.Passwort);
+            writer.WriteElementString("Datenbank", dbParameter.Datenbank);
+            writer.WriteElementString("Server", dbParameter.Server);
+            writer.WriteElementString("PersistSecurityInfo", dbParameter.PersistSecurityInfo);
+            writer.WriteElementString("Provider", dbParameter.Provider);
+            writer.WriteEndElement();
+
+            writer.WriteEndElement();
+            writer.WriteEndDocument();
+
+            
+          }
+
+          conSuccesful = true;
+
+        }
+        catch (Exception ex)
+        {
+          conSuccesful = false;
+        }
+      }
+
+      return conSuccesful;
+    }
   }
 }

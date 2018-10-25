@@ -63,6 +63,7 @@
       <DependentUpon>teDatenbankGui.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helper\HelperUtils.cs" />
+    <Compile Include="Helper\JsonDbParameter.cs" />
     <Compile Include="Helper\JSONHelper.cs" />
     <Compile Include="teDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

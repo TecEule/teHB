@@ -40,8 +40,8 @@ namespace HB
       teDB_.teDB_ conTest_1 = teDB_.teDB_.Instance.addConncection("Haushalt", "Haushalt", teDBEnum.Dateiendung.XML);
       teDB_.teDB_ conTest_2 = teDB_.teDB_.Instance.addConncection("Verbindung_1", "Haushalt", teDBEnum.Dateiendung.XML);
 
-      //teDB_.teDB_ conTestJson = teDB_.teDB_.Instance.addConncection("BudgetVerbindung", "Budget", teDBEnum.Dateiendung.JSON);
-      //teDB_.teDB_ conTestJsondd = teDB_.teDB_.Instance.addConncection("Budget", "Budget", teDBEnum.Dateiendung.JSON);
+      teDB_.teDB_ conTestJson = teDB_.teDB_.Instance.addConncection("BudgetVerbindung", "Budget", teDBEnum.Dateiendung.JSON);
+      teDB_.teDB_ conTestJsondd = teDB_.teDB_.Instance.addConncection("Budget", "Budget", teDBEnum.Dateiendung.JSON);
 
 
 

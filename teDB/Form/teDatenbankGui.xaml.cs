@@ -76,10 +76,10 @@ namespace teDB.FormWpf
 
       foreach (var item in lst)
       {
-
+        //UdlHelper.Instance.convertToUdl(item);
+        //XMLHelper.Instance.convertToXml(item);
+        JSONHelper.Instance.convetToJson(item);
       }
-
-
 
     }
 

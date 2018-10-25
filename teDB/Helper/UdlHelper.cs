@@ -101,7 +101,40 @@ namespace teDB
       return retValue;
     }
 
+    public bool convertToUdl(teDBParameter dbParameter)
+    {
+      bool conSuccesful = false;
 
+      if (dbParameter != null)
+      {
+        try
+        {
+          StringBuilder builder = new StringBuilder();
+          builder.AppendLine("[oledb]");
+          builder.AppendLine("; Everything after this line is an OLE DB initstring");
+          builder.Append("Provider=").Append(dbParameter.Provider);
+          builder.Append(";Password=").Append(dbParameter.Passwort);
+          builder.Append(";Persist Security Info=").Append(dbParameter.PersistSecurityInfo);
+          builder.Append(";User ID=").Append(dbParameter.Benutzername);
+          builder.Append("; Initial Catalog=").Append(dbParameter.Datenbank);
+          builder.Append(";Data Source=").Append(dbParameter.Server);
+
+          string fileName = string.Format(@"D:\Projekte\Projekte_Eigene\_HB\teHB\ini\ConverttoUdl_{0}.udl", dbParameter.Verbindungsname);
+          using (StreamWriter writer = new StreamWriter(fileName, true, Encoding.Unicode))
+          {
+            writer.Write(builder.ToString());
+          }
+
+          conSuccesful = true;
+        }
+        catch(Exception ex)
+        {
+          conSuccesful = false;
+        }
+      }
+
+      return conSuccesful;
+    }
 
   }
 }

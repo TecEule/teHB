@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -83,5 +84,113 @@ namespace teDB
 
       return dbParameter;
     }
+
+
+    public bool convetToJson(teDBParameter dBParameter)
+    {
+      bool conSuccesful = false;
+
+
+      DataSet dataSet = new DataSet("dataSet");
+      dataSet.Namespace = "NetFrameWork";
+      DataTable table = new DataTable("Verbindungen");
+
+      DataColumn Verbindungsname = new DataColumn("Verbindungsname");
+      DataColumn Benutzername = new DataColumn("Benutzername");
+      DataColumn Passwort = new DataColumn("Passwort");
+      DataColumn Datenbank = new DataColumn("Datenbank");
+      DataColumn Server = new DataColumn("Server");
+      DataColumn Integratedsecrurity = new DataColumn("Integratedsecrurity");
+      DataColumn Provider = new DataColumn("Provider");
+      DataColumn PersistSecurityInfo = new DataColumn("PersistSecurityInfo");
+
+      table.Columns.Add(Verbindungsname);
+      table.Columns.Add(Benutzername);
+      table.Columns.Add(Passwort);
+      table.Columns.Add(Datenbank);
+      table.Columns.Add(Server);
+      table.Columns.Add(Integratedsecrurity);
+      table.Columns.Add(Provider);
+      table.Columns.Add(PersistSecurityInfo);
+
+
+
+
+
+      dataSet.Tables.Add(table);
+
+      for (int i = 0; i < 1; i++)
+      {
+        DataRow newRow = table.NewRow();
+        newRow["Verbindungsname"]    = dBParameter.Verbindungsname;
+        newRow["Benutzername"]       = dBParameter.Benutzername;
+        newRow["Passwort"]           = dBParameter.Passwort;
+        newRow["Datenbank"]          = dBParameter.Server;
+        newRow["Server"]             = dBParameter.Integratedsecrurity;
+        newRow["Integratedsecrurity"]= dBParameter.Provider;
+        newRow["Provider"]           = dBParameter.Provider;
+        newRow["PersistSecurityInfo"] = dBParameter.PersistSecurityInfo; 
+        table.Rows.Add(newRow);
+      }
+
+      dataSet.AcceptChanges();
+
+      string jsodn = JsonConvert.SerializeObject(dataSet, Formatting.Indented);
+
+      Console.WriteLine(jsodn);
+
+      JsonHelper.Parameter.JsonDbParameter jsonDb = new JsonHelper.Parameter.JsonDbParameter();
+
+
+      jsonDb.Verbindungsname = dBParameter.Verbindungsname;
+      jsonDb.Benutzername = dBParameter.Benutzername;
+      jsonDb.Passwort = dBParameter.Passwort;
+      jsonDb.Datenbank = dBParameter.Datenbank;
+      jsonDb.Server = dBParameter.Server;
+      jsonDb.Integratedsecrurity = dBParameter.Integratedsecrurity;
+      jsonDb.Provider = dBParameter.Provider;
+      jsonDb.PersistSecurityInfo = dBParameter.PersistSecurityInfo;
+
+
+
+      JsonHelper.Parameter.JsonList list = new JsonHelper.Parameter.JsonList();
+      list.Verbindungen = new List<JsonHelper.Parameter.JsonDbParameter>();
+      list.Verbindungen.Add(jsonDb);
+
+      string lstJson = JsonConvert.SerializeObject(list, Formatting.None);
+
+      Console.WriteLine(lstJson);
+
+      if (dBParameter != null)
+      {
+        try
+        {
+          string fileName = string.Format(@"D:\Projekte\Projekte_Eigene\_HB\teHB\ini\ConverttoJson_{0}.json", dBParameter.Verbindungsname);
+
+          using (StreamWriter writer = new StreamWriter(fileName, true))
+          {
+            writer.WriteLine(lstJson);
+          }
+
+
+          //using (StreamWriter writer = File.CreateText(fileName))
+          //{
+          //  JsonSerializer serializer = new JsonSerializer();
+          //  serializer.Serialize(writer, lstJson);
+          //}
+
+
+        }
+        catch (Exception ex)
+        {
+          conSuccesful = false;
+        }
+
+      }
+
+
+      return conSuccesful;
+    }
+
   }
 }
