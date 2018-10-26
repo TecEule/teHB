@@ -10,7 +10,7 @@ using System.Xml;
 namespace teDB
 {
 
-  class XMLHelper
+  public class XMLHelper
   {
 
     private static XMLHelper _instance;

@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\ini\Standard.udl = ..\ini\Standard.udl
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "teDBGui", "teDBGui\teDBGui.csproj", "{5FDA668F-AB83-46EC-9ED1-676EE193F0EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{133CDC24-0A58-485E-810D-64520491CE3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{133CDC24-0A58-485E-810D-64520491CE3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{133CDC24-0A58-485E-810D-64520491CE3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FDA668F-AB83-46EC-9ED1-676EE193F0EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FDA668F-AB83-46EC-9ED1-676EE193F0EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FDA668F-AB83-46EC-9ED1-676EE193F0EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FDA668F-AB83-46EC-9ED1-676EE193F0EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

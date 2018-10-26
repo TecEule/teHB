@@ -30,6 +30,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -59,9 +62,6 @@
   <ItemGroup>
     <Compile Include="Enum\Enum.cs" />
     <Compile Include="Enum\EnumExtensions.cs" />
-    <Compile Include="Form\teDatenbankGui.xaml.cs">
-      <DependentUpon>teDatenbankGui.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Helper\HelperUtils.cs" />
     <Compile Include="Helper\JsonDbParameter.cs" />
     <Compile Include="Helper\JSONHelper.cs" />
@@ -73,12 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Form\teDatenbankGui.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />

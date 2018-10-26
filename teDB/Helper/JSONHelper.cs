@@ -11,7 +11,7 @@ using Newtonsoft.Json.Linq;
 
 namespace teDB
 {
-  class JSONHelper
+  public class JSONHelper
   {
 
     private static JSONHelper _instance;

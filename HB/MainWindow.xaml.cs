@@ -51,10 +51,8 @@ namespace HB
     private void btn_Test_Click(object sender, RoutedEventArgs e)
     {
 
-      Window w = new Window();
-      w.Content = teDB.FormWpf.teDatenbankGui.Instance;
-      w.Show();
-
+      teDBGui.GuiDb guiDb = new teDBGui.GuiDb();
+      guiDb.Show();
 
 
       //bool retValue = stackPanel.Children.Contains(teDB.Form.teDatenbank.Instance);

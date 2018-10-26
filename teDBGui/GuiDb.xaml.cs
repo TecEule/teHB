@@ -10,35 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using teDB;
-using teDB_;
 
-
-
-namespace teDB.FormWpf
+namespace teDBGui
 {
   /// <summary>
-  /// Interaktionslogik für UserControlTest.xaml
+  /// Interaktionslogik für GuiDb.xaml
   /// </summary>
-  public partial class teDatenbankGui : UserControl
+  public partial class GuiDb : Window
   {
-
-
-    private static teDatenbankGui _instance = null;
-    public static teDatenbankGui Instance
-    {
-      get
-      {
-        if (_instance == null)
-          _instance = new teDatenbankGui();
-
-        return _instance;
-      }
-    }
-
-    public teDatenbankGui()
+    public GuiDb()
     {
       InitializeComponent();
       initGrid();
@@ -70,19 +52,32 @@ namespace teDB.FormWpf
     private void btn_Export_Click(object sender, RoutedEventArgs e)
     {
 
-      var temp = gridHaushalt.SelectedItems;
+      MainWindow export = new MainWindow();
+     export.ShowDialog();
 
-      List<teDBParameter> lst = temp.OfType<teDBParameter>().ToList();
-
-      foreach (var item in lst)
+      if (export.DialogResult.HasValue
+        && export.DialogResult.Value)
       {
-        //UdlHelper.Instance.convertToUdl(item);
-        //XMLHelper.Instance.convertToXml(item);
-        JSONHelper.Instance.convetToJson(item);
+        var temp = gridHaushalt.SelectedItems;
+
+        List<teDBParameter> lst = temp.OfType<teDBParameter>().ToList();
+
+        foreach (var item in lst)
+        {
+          if(export.ConvertTo == 0)
+            UdlHelper.Instance.convertToUdl(item);
+          else if (export.ConvertTo == 1)
+            XMLHelper.Instance.convertToXml(item);
+          else if(export.ConvertTo == 3)
+            JSONHelper.Instance.convetToJson(item);
+        }
       }
 
     }
 
-
+    private void btn_Close_Click(object sender, RoutedEventArgs e)
+    {
+      Close();
+    }
   }
 }
