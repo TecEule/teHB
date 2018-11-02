@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5FDA668F-AB83-46EC-9ED1-676EE193F0EA}</ProjectGuid>
+    <ProjectGuid>{458E7ACC-B96E-4F21-8B80-E000D1DFEC88}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>teDBGui</RootNamespace>
-    <AssemblyName>teDBGui</AssemblyName>
+    <RootNamespace>HBGuiUebersicht</RootNamespace>
+    <AssemblyName>HBGuiUebersicht</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -55,11 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="GuiDb.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="FixeAusgaben\GuiFixeAusgaben.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="GuiAuswahlExport.xaml">
+    <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -67,11 +67,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GuiDb.xaml.cs">
-      <DependentUpon>GuiDb.xaml</DependentUpon>
+    <Compile Include="FixeAusgaben\fixeAusgaben.cs" />
+    <Compile Include="FixeAusgaben\fixeAusgabenData.cs" />
+    <Compile Include="FixeAusgaben\GuiFixeAusgaben.xaml.cs">
+      <DependentUpon>GuiFixeAusgaben.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GuiAuswahlExport.xaml.cs">
-      <DependentUpon>GuiAuswahlExport.xaml</DependentUpon>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -102,6 +104,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HBStart\HBGlobal.csproj">
+      <Project>{fed4a3aa-d00b-42c8-89cb-69fe8bc92fa7}</Project>
+      <Name>HBGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\teDBGui\teDBGui.csproj">
+      <Project>{5fda668f-ab83-46ec-9ed1-676ee193f0ea}</Project>
+      <Name>teDBGui</Name>
+    </ProjectReference>
     <ProjectReference Include="..\teDB\teDB.csproj">
       <Project>{133cdc24-0a58-485e-810d-64520491ce3c}</Project>
       <Name>teDB</Name>

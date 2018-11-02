@@ -19,9 +19,23 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="btn_Test" Content="DB" Click="btn_Test_Click" Grid.Column="0" Grid.Row="1"/>
+        <StackPanel x:Name="stackPanel" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
 
-        <WrapPanel x:Name="stackPanel" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Background="WhiteSmoke">
+            <Button x:Name="btn_Test" Content="DB" Click="btn_Test_Click" Height="50" FontSize="22"/>
+            <Button x:Name="btn_MainGrid" Content="Main Grid" Click="btn_MainGrid_Click" Height="50" FontSize="22"/>
+            <Button x:Name="btn_FixeEinnahmen" Content="Fixe Einnahmen" Click="btn_FixeEinnahmen_Click" Height="50" FontSize="22"/>
+            <Button x:Name="btn_FixeAusgabe" Content="Fixe Ausgaben" Click="btn_FixeAusgabe_Click"  Height="50" FontSize="22"/>
+            <Button x:Name="btn_MonatlicheAusgaben" Content="Monatliche Ausgaben" Click="btn_MonatlicheAusgaben_Click" Height="50" FontSize="18"/>
+            <Button x:Name="btn_MonatlicheZusatzEinnahmen" Click="btn_MonatlicheZusatzEinnahmen_Click" Height="50" FontSize="14">
+                <Label>
+                    <TextBlock>Monatliche<LineBreak/> Zusatzeinnahmen</TextBlock>
+                </Label>
+            </Button>
+            <Button x:Name="btn_Close" Content="Close" Click="btn_Close_Click" Height="50" FontSize="22"/>
+        </StackPanel>
+        
+        
+        <WrapPanel x:Name="wrapPanel" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Background="WhiteSmoke">
             <WindowsFormsHost x:Name="wfHost"/>
         </WrapPanel>
 

@@ -35,7 +35,6 @@ namespace teDBGui
         gridHaushalt.Items.Add(dbParameter);
       }
 
-
     }
 
     private void btn_Verbindungstest_Click(object sender, RoutedEventArgs e)
@@ -52,7 +51,7 @@ namespace teDBGui
     private void btn_Export_Click(object sender, RoutedEventArgs e)
     {
 
-      MainWindow export = new MainWindow();
+      GuiAuswahlExport export = new GuiAuswahlExport();
      export.ShowDialog();
 
       if (export.DialogResult.HasValue

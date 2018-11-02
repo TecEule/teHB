@@ -25,28 +25,28 @@ namespace HB
     public MainWindow()
     {
       InitializeComponent();
-
-      initDBConncection();
+      HBGlobal.Globals.Instance.initDatabaseConnection();
+      //initDBConncection();
     }
 
-    teDB_.teDB_ conStanDB;
+    //teDB_.teDB_ conStanDB;
 
-    private bool initDBConncection()
-    {
-      bool conSuccesful = false;
+    //private bool initDBConncection()
+    //{
+    //  bool conSuccesful = false;
 
-      conStanDB= teDB_.teDB_.Instance.addConncection("OwnBase", "Standard", teDBEnum.Dateiendung.UDL);
+    //  conStanDB= teDB_.teDB_.Instance.addConncection("OwnBase", "Standard", teDBEnum.Dateiendung.UDL);
 
-      teDB_.teDB_ conTest_1 = teDB_.teDB_.Instance.addConncection("Haushalt", "Haushalt", teDBEnum.Dateiendung.XML);
-      teDB_.teDB_ conTest_2 = teDB_.teDB_.Instance.addConncection("Verbindung_1", "Haushalt", teDBEnum.Dateiendung.XML);
+    //  teDB_.teDB_ conTest_1 = teDB_.teDB_.Instance.addConncection("Haushalt", "Haushalt", teDBEnum.Dateiendung.XML);
+    //  teDB_.teDB_ conTest_2 = teDB_.teDB_.Instance.addConncection("Verbindung_1", "Haushalt", teDBEnum.Dateiendung.XML);
 
-      teDB_.teDB_ conTestJson = teDB_.teDB_.Instance.addConncection("BudgetVerbindung", "Budget", teDBEnum.Dateiendung.JSON);
-      teDB_.teDB_ conTestJsondd = teDB_.teDB_.Instance.addConncection("Budget", "Budget", teDBEnum.Dateiendung.JSON);
+    //  teDB_.teDB_ conTestJson = teDB_.teDB_.Instance.addConncection("BudgetVerbindung", "Budget", teDBEnum.Dateiendung.JSON);
+    //  teDB_.teDB_ conTestJsondd = teDB_.teDB_.Instance.addConncection("Budget", "Budget", teDBEnum.Dateiendung.JSON);
 
 
 
-      return conSuccesful;
-    }
+    //  return conSuccesful;
+    //}
 
     private void btn_Test_Click(object sender, RoutedEventArgs e)
     {
@@ -71,6 +71,37 @@ namespace HB
       //host.Child = temp;
 
       //stackPanel.Children.Add(host);
+
+    }
+
+    private void btn_Close_Click(object sender, RoutedEventArgs e)
+    {
+      Close();
+    }
+
+    private void btn_MainGrid_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void btn_FixeEinnahmen_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void btn_FixeAusgabe_Click(object sender, RoutedEventArgs e)
+    {
+      GuiFixeAusgaben.GuiFixeAusgaben fixeAusgaben = new GuiFixeAusgaben.GuiFixeAusgaben();
+      fixeAusgaben.Show();
+    }
+
+    private void btn_MonatlicheAusgaben_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void btn_MonatlicheZusatzEinnahmen_Click(object sender, RoutedEventArgs e)
+    {
 
     }
   }

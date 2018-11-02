@@ -18,11 +18,11 @@ namespace teDBGui
   /// <summary>
   /// Interaktionslogik für MainWindow.xaml
   /// </summary>
-  public partial class MainWindow : Window
+  public partial class GuiAuswahlExport : Window
   {
 
     public int ConvertTo { get; set; }
-    public MainWindow()
+    public GuiAuswahlExport()
     {
       InitializeComponent();
     }

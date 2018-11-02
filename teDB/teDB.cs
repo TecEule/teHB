@@ -14,7 +14,7 @@ namespace teDB_
     public class teDB_ //: teDBParameter
     {
 
-    public teDBParameter dbParam { get; }
+    public teDBParameter dbParam { get; set; }
 
     public string _VerbindungsVerzeichnis = "";
 
@@ -79,7 +79,7 @@ namespace teDB_
 
         db.Dateiformat = dateiEndung.ToString();
 
-
+        teConnection.dbParam = db;
         //db.Verbindungsstatus = checkConnection(db);
       }
      

@@ -1,8 +1,8 @@
-﻿<Application x:Class="teDBGui.App"
+﻿<Application x:Class="HBGuiUebersicht.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:teDBGui"
-             StartupUri="GuiDb.xaml">
+             xmlns:local="clr-namespace:HBGuiUebersicht"
+             StartupUri="MainWindow.xaml">
     <Application.Resources>
          
     </Application.Resources>

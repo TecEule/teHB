@@ -107,6 +107,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HBGuiUebersicht\HBGuiUebersicht.csproj">
+      <Project>{458e7acc-b96e-4f21-8b80-e000d1dfec88}</Project>
+      <Name>HBGuiUebersicht</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HBStart\HBGlobal.csproj">
+      <Project>{fed4a3aa-d00b-42c8-89cb-69fe8bc92fa7}</Project>
+      <Name>HBGlobal</Name>
+    </ProjectReference>
     <ProjectReference Include="..\teDBGui\teDBGui.csproj">
       <Project>{5fda668f-ab83-46ec-9ed1-676ee193f0ea}</Project>
       <Name>teDBGui</Name>
