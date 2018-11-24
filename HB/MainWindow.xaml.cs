@@ -24,6 +24,9 @@ namespace HB
   {
     public MainWindow()
     {
+
+      SplashScreen.MainWindow.Instance.ShowDialog();
+
       InitializeComponent();
       HBGlobal.Globals.Instance.initDatabaseConnection();
       //initDBConncection();

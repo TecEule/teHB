@@ -31,7 +31,7 @@ namespace HBGlobal
 
     public void initDatabaseConnection()
     {
-      conStandard = teDB_.teDB_.Instance.addConncection("OwnBase", "Standard", teDBEnum.Dateiendung.UDL);
+      //conStandard = teDB_.teDB_.Instance.addConncection("OwnBase", "Standard", teDBEnum.Dateiendung.UDL);
     }
 
 
